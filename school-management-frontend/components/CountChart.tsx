@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import { RadialBarChart, RadialBar, ResponsiveContainer } from 'recharts';
+import { RadialBarChart, RadialBar, ResponsiveContainer, Legend } from 'recharts';
 
 const data = [
   {
@@ -11,12 +11,12 @@ const data = [
   {
     name: 'Girls',
     count: 50,
-    fill: '#fae27c',
+    fill: '#FAE27C',
   },
   {
     name: 'Boys',
     count: 100,
-    fill: '#c3ebfa',
+    fill: '#C3EBFA',
   },
 ];
 
@@ -36,10 +36,12 @@ const CountChart = () => {
               label={{ position: 'insideStart', fill: '#fff' }}
               background
               dataKey="count"
+              legendType='circle'
             />
-            {/* <Legend iconSize={10} layout="vertical" verticalAlign="middle" /> */}
+            <Legend iconSize={10} layout="vertical" verticalAlign="middle" />
           </RadialBarChart>
         </ResponsiveContainer>
+        { /*
         <Image
           src="/maleFemale.png"
           alt='maleFamale'
@@ -47,6 +49,7 @@ const CountChart = () => {
           height={50}
           className=' absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'
         />
+        */}
       </div>
       {/* bottom */}
       <div className=" flex justify-center gap-16">
