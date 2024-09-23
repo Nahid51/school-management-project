@@ -70,9 +70,8 @@
 .rbc-event {
     border: none !important;
     color: black !important;
-    padding: 10px !important;
-    margin: 10px !important;
-    width: 99% !important;
+    margin: 5px !important;
+    padding: 5px !important;
 }
 
 .rbc-event:nth-child(1) {
