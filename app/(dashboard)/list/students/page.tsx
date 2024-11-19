@@ -47,7 +47,7 @@ const renderRow = (item: StudentList) => (
         key={item?.id}
         className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight"
     >
-        <td className="flex items-center gap-4 p-4">
+        <td className="flex items-center gap-4 py-4">
             <Image
                 src={item?.img || "/noAvatar.png"}
                 alt=""
