@@ -36,13 +36,31 @@ const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
 const StudentForm = dynamic(() => import("./forms/StudentForm"), {
     loading: () => <h1>Loading...</h1>,
 });
+const ParentForm = dynamic(() => import("./forms/ParentForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
 const SubjectForm = dynamic(() => import("./forms/SubjectForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 const ClassForm = dynamic(() => import("./forms/ClassForm"), {
     loading: () => <h1>Loading...</h1>,
 });
+const LessonForm = dynamic(() => import("./forms/LessonForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
 const ExamForm = dynamic(() => import("./forms/ExamForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+const ResultForm = dynamic(() => import("./forms/ResultForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+const AssignmentForm = dynamic(() => import("./forms/AssignmentForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+const EventForm = dynamic(() => import("./forms/EventForm"), {
+    loading: () => <h1>Loading...</h1>,
+});
+const AnnouncementForm = dynamic(() => import("./forms/AnnouncementForm"), {
     loading: () => <h1>Loading...</h1>,
 });
 
@@ -51,47 +69,95 @@ const forms: {
         setOpen: Dispatch<SetStateAction<boolean>>,
         type: "create" | "update",
         data?: any,
-        relatedData?: any
+        // relatedData?: any
     ) => JSX.Element;
 } = {
-    subject: (setOpen, type, data, relatedData) => (
+    subject: (setOpen, type, data,) => (
         <SubjectForm
             type={type}
             data={data}
             setOpen={setOpen}
-            relatedData={relatedData}
+            // relatedData={relatedData}
         />
     ),
-    class: (setOpen, type, data, relatedData) => (
+    class: (setOpen, type, data,) => (
         <ClassForm
             type={type}
             data={data}
             setOpen={setOpen}
-            relatedData={relatedData}
+            // relatedData={relatedData}
         />
     ),
-    teacher: (setOpen, type, data, relatedData) => (
+    lesson: (setOpen, type, data,) => (
+        <LessonForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+        // relatedData={relatedData}
+        />
+    ),
+    teacher: (setOpen, type, data,) => (
         <TeacherForm
             type={type}
             data={data}
             setOpen={setOpen}
-            relatedData={relatedData}
+            // relatedData={relatedData}
         />
     ),
-    student: (setOpen, type, data, relatedData) => (
+    student: (setOpen, type, data,) => (
         <StudentForm
             type={type}
             data={data}
             setOpen={setOpen}
-            relatedData={relatedData}
+            // relatedData={relatedData}
         />
     ),
-    exam: (setOpen, type, data, relatedData) => (
+    parent: (setOpen, type, data,) => (
+        <ParentForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+        // relatedData={relatedData}
+        />
+    ),
+    exam: (setOpen, type, data,) => (
         <ExamForm
             type={type}
             data={data}
             setOpen={setOpen}
-            relatedData={relatedData}
+        // relatedData={relatedData}
+        />
+    ),
+    result: (setOpen, type, data,) => (
+        <ResultForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+        // relatedData={relatedData}
+        />
+    ),
+    assignment: (setOpen, type, data,) => (
+        <AssignmentForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+    // relatedData={relatedData}
+        />
+    ),
+    event: (setOpen, type, data,) => (
+        <EventForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+    // relatedData={relatedData}
+        />
+    ),
+    announcement: (setOpen, type, data,) => (
+        <AnnouncementForm
+            type={type}
+            data={data}
+            setOpen={setOpen}
+    // relatedData={relatedData}
         />
     ),
 };
@@ -101,8 +167,8 @@ const FormModal = ({
     type,
     data,
     id,
-    relatedData,
-}: FormContainerProps & { relatedData?: any }) => {
+    // relatedData,
+}: FormContainerProps) => {
     const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
     const bgColor =
         type === "create"
@@ -140,7 +206,7 @@ const FormModal = ({
                 </button>
             </form>
         ) : type === "create" || type === "update" ? (
-                forms[table](setOpen, type, data, relatedData)
+                forms[table](setOpen, type, data)
         ) : (
             "Form not found!"
         );

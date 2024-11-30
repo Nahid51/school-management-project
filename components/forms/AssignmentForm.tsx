@@ -15,7 +15,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-const ExamForm = ({
+const AssignmentForm = ({
     type,
     data,
     setOpen,
@@ -24,7 +24,7 @@ const ExamForm = ({
     type: "create" | "update";
     data?: any;
     setOpen: Dispatch<SetStateAction<boolean>>;
-        // relatedData?: any;
+    // relatedData?: any;
 }) => {
     const {
         register,
@@ -61,12 +61,12 @@ const ExamForm = ({
     return (
         <form className="flex flex-col gap-8" onSubmit={onSubmit}>
             <h1 className="text-xl font-semibold">
-                {type === "create" ? "Create a new exam" : "Update the exam"}
+                {type === "create" ? "Create a new assignment" : "Update the assignment"}
             </h1>
 
             <div className="flex justify-between flex-wrap gap-4">
                 <InputField
-                    label="Exam title"
+                    label="Assignment title"
                     name="title"
                     defaultValue={data?.title}
                     register={register}
@@ -129,4 +129,4 @@ const ExamForm = ({
     );
 };
 
-export default ExamForm;
+export default AssignmentForm;

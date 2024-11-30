@@ -65,7 +65,7 @@ const AssignmentListPage = async ({ searchParams }: {
             </td>
             <td>
                 <div className="flex items-center gap-2">
-                    {role === "admin" || role === "teacher" && (
+                    {(role === "admin" || role === "teacher") && (
                         <>
                             <FormModal table="assignment" type="update" data={item} />
                             <FormModal table="assignment" type="delete" id={item?.id} />
@@ -169,9 +169,13 @@ const AssignmentListPage = async ({ searchParams }: {
                         <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
                             <Image src="/sort.png" alt="filter" width={14} height={14} />
                         </button>
-                        {role === "admin" && (
+                        {/* {role === "admin" && (
                             <FormModal table="assignment" type="create" />
-                        )}
+                        )} */}
+                        {role === "admin" ||
+                            (role === "teacher" && (
+                                <FormModal table="assignment" type="create" />
+                            ))}
                     </div>
                 </div>
             </div>

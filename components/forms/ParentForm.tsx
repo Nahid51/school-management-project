@@ -12,7 +12,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 // import { CldUploadWidget } from "next-cloudinary";
 
-const TeacherForm = ({
+const ParentForm = ({
     type,
     data,
     setOpen,
@@ -21,7 +21,7 @@ const TeacherForm = ({
     type: "create" | "update";
     data?: any;
     setOpen: Dispatch<SetStateAction<boolean>>;
-        // relatedData?: any;
+    // relatedData?: any;
 }) => {
     const {
         register,
@@ -61,7 +61,7 @@ const TeacherForm = ({
     return (
         <form className="flex flex-col gap-8" onSubmit={onSubmit}>
             <h1 className="text-xl font-semibold">
-                {type === "create" ? "Create a new teacher" : "Update the teacher"}
+                {type === "create" ? "Create a new parent" : "Update the parent"}
             </h1>
             <span className="text-xs text-gray-400 font-medium">
                 Authentication Information
@@ -128,14 +128,6 @@ const TeacherForm = ({
                     defaultValue={data?.bloodType}
                     register={register}
                     error={errors.bloodType}
-                />
-                <InputField
-                    label="Birthday"
-                    name="birthday"
-                    defaultValue={data?.birthday.toISOString().split("T")[0]}
-                    register={register}
-                    error={errors.birthday}
-                    type="date"
                 />
                 {data && (
                     <div className=" hidden">
@@ -214,4 +206,4 @@ const TeacherForm = ({
     );
 };
 
-export default TeacherForm;
+export default ParentForm;

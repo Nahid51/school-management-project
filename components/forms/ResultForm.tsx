@@ -15,7 +15,7 @@ import { Dispatch, SetStateAction, useEffect } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
-const ExamForm = ({
+const ResultForm = ({
     type,
     data,
     setOpen,
@@ -24,7 +24,7 @@ const ExamForm = ({
     type: "create" | "update";
     data?: any;
     setOpen: Dispatch<SetStateAction<boolean>>;
-        // relatedData?: any;
+    // relatedData?: any;
 }) => {
     const {
         register,
@@ -73,20 +73,18 @@ const ExamForm = ({
                     error={errors?.title}
                 />
                 <InputField
-                    label="Start Date"
-                    name="startTime"
-                    defaultValue={data?.startTime}
+                    label="Student id"
+                    name="studentId"
+                    defaultValue={data?.id}
                     register={register}
-                    error={errors?.startTime}
-                    type="datetime-local"
+                    error={errors?.id}
                 />
                 <InputField
-                    label="End Date"
-                    name="endTime"
-                    defaultValue={data?.endTime}
+                    label="Score"
+                    name="score"
+                    defaultValue={data?.score}
                     register={register}
-                    error={errors?.endTime}
-                    type="datetime-local"
+                    error={errors?.id}
                 />
                 {data && (
                     <div className=" hidden">
@@ -129,4 +127,4 @@ const ExamForm = ({
     );
 };
 
-export default ExamForm;
+export default ResultForm;
